@@ -32,10 +32,12 @@ class CalendarHead extends Component {
       datesWithInfo: _.map(_.range(42), function(i) {
         return { order: i };
       }),
-      test: []
+      test: [],
+      sample : "'2000-01-01', '2021-11-07'"
     };
     this.changeDate = this.changeDate.bind(this);
     this.getDB = this.getDB.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -49,8 +51,11 @@ class CalendarHead extends Component {
             .format("YYYYMMDD")
         };
       })
+    });
+    fetch("/crud", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
     })
-    fetch("/crud", { method: "GET", headers : { "Content-Type" : "application/json"} })
       .then(res => {
         return res.json();
       })
@@ -86,17 +91,28 @@ class CalendarHead extends Component {
     //delete는?
   }
 
+  handleClick() {
+    fetch("/crud", {
+      method: "POST",
+       body : JSON.stringify(this.state.sample)
+    });
+  }
+
   render() {
+    console.log(this.state.test);
     return (
-      <Calendar
-        getDB={this.getDB}
-        postDB={this.postDB}
-        selected={this.state.selected}
-        firstDay={this.state.firstDay}
-        changeDate={this.changeDate}
-        datesWithInfo={this.state.datesWithInfo}
-        postDB={this.postDB}
-      />
+      <div>
+        <Calendar
+          getDB={this.getDB}
+          postDB={this.postDB}
+          selected={this.state.selected}
+          firstDay={this.state.firstDay}
+          changeDate={this.changeDate}
+          datesWithInfo={this.state.datesWithInfo}
+          postDB={this.postDB}
+        />
+        <button onClick={this.handleClick}> click to post </button>
+      </div>
     );
   }
 }

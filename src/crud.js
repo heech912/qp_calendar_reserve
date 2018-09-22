@@ -15,10 +15,13 @@ var con = mysql.createConnection({
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-router.get("/", function(req, res) {
-  res.set({
-    "Content-Type": "application/json"
-  });
+router.post("/ugly", function(req, res) {
+  con.query("INSERT INTO calendar_reserve values('2000-01-01', '2021-11-07')");
+});
+
+
+router.get("/main", function(req, res) {
+
   con.query("SELECT * from calendar_reserve", (err, result) => {
     if (err) throw err;
     res.send(result);
@@ -26,9 +29,5 @@ router.get("/", function(req, res) {
   });
 });
 
-app.post("/", function(req, res) {
-  con.query("INSERT INTO calendar_reserve values('1996-09-12', '2018-09-25') ");
-  res.send(res);
-});
 
 module.exports = router;
