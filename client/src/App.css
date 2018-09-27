@@ -1,38 +1,11 @@
-.datebox {
-  border-style: solid;
-  border-width: 1px;
-  border-color: blue;
-  width: 14%;
-  height: 13%;
-  margin: auto;
+.left{
   float: left;
 }
 
-.calendarbox {
-  border-style: solid;
-  border-width: 1px;
-  width: 900px;
-  height: 600px;
-  padding: 2px;
-  float: left;
+.box{
+  padding : 10px
 }
 
-.reservebox {
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
-  background-color: yellow;
-  height: 600px;
-  width: 300px;
-  float: left;
-  text-decoration-color: red;
-  padding: 2px;
-}
-
-.reserveboxhidden {
-  visibility : hidden;
-}
-
-.floatleft {
-  float : left
+.hidden{
+  display : none;
 }
