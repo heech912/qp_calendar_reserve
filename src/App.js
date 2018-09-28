@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var mysql = require("mysql");
 //var path = require("path"); dir_
 var app = express();
-var port = 7777;
+var port = process.env.PORT || 8080;
 
 app.use("/cars", require("./crud/cars"));
 app.use("/dealers", require("./crud/dealers"));
