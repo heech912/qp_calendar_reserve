@@ -16,6 +16,7 @@
 // Hierarchical node.js configuration with command-line arguments, environment
 // variables, and files.
 const nconf = module.exports = require('nconf');
+const path = require('path')
 
 nconf
   // 1. Command-line arguments
@@ -31,7 +32,7 @@ nconf
     'PORT'
   ])
   // 3. Config file
-  .file({ file: require('./config.json') })
+  .file({ file: path.join(__dirname, 'config.json') })
   // 4. Defaults
   .defaults({
     // dataBackend can be 'datastore' or 'cloudsql'. Be sure to
