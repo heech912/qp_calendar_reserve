@@ -121,7 +121,7 @@ class APITestComponent extends Component {
 
   deleteReserve(param) {
     fetch(
-      `/reserves/:${this.state.selectedReserve[param]['ID']}`,
+      `/reserves/${this.state.selectedReserve[param]['ID']}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
