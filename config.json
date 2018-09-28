@@ -1,0 +1,7 @@
+{
+  "GCLOUD_PROJECT": "qp-calendar-0912",
+  "DATA_BACKEND": "cloudsql",
+  "MYSQL_USER": "root",
+  "MYSQL_PASSWORD": "123$qweR",
+  "INSTANCE_CONNECTION_NAME": "qp-calendar-0912:asia-northeast1:qp-calendar"
+}
