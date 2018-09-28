@@ -1,15 +1,11 @@
 var express = require("express");
 var bodyParser = require("body-Parser");
 var mysql = require("mysql");
+var config = require("../config/db_config.json")
 
 var app = express();
 var router = express.Router();
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "123$qweR",
-  database: "zoocarsample"
-});
+var con = mysql.createConnection(config);
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
